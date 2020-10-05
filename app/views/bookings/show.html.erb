@@ -1,0 +1,6 @@
+<h1>Booking Info</h1>
+<h3>Booking_id: <%= @booking.id %></h3>
+<h3>Room No: <%= @booking.room.no %></h3>
+<h3>Booking_id: <%= @booking.room.room_type %></h3>
+<h3>Booking_id: <%= number_to_currency(@booking.room.rate) %></h3>
+<%= link_to 'Book a Room', new_booking_path %>

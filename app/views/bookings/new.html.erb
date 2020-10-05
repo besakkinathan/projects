@@ -1,0 +1,16 @@
+<h3>Create a Booking</h3>
+<% if !!flash[:errors] %>
+  <% flash[:errors].each do |error| %>
+    <p style="color: red"><%= error %></p>
+  <% end %>
+<% end %>
+
+<%= form_with model: @booking do |form| %>
+  <table>
+    <tr><td>Checkin Date</td><td><%= form.text_field :checkin_date, placeholder: "(yyyy-mm-dd)" %> (yyyy-mm-dd)</td></tr>
+    <tr><td>Checkout Date</td><td><%= form.text_field :checkout_date, placeholder: "(yyyy-mm-dd)" %> (yyyy-mm-dd)</td></tr>
+    <tr><td>Room Type</td><td><%= form.select(:room_type, options_for_select([['Deluxe', 0], ['Luxury', 2], ['Luxury Suite', 2], ['Presidential Suite', 3]])) %></td></tr>
+    <tr><td>No of Guests</td><td><%= form.text_field :no_of_guests, placeholder: "1-4" %> (1-4)</td></tr>
+    <tr><td colspan="2" align="center"><%= form.submit "Create a Booking" %></td></tr>
+  </table>
+<% end %>

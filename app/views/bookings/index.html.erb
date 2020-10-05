@@ -1,0 +1,21 @@
+<h1>All Bookings</h1>
+<table>
+  <tr>
+    <td>Checkin_Date</td>
+    <td>Checkout_Date</td>
+    <td>No Of Guest</td>
+    <td>Room No</td>
+    <td>Room Type</td>
+  </tr>
+  <% @bookings.each do |booking| %>
+    <tr>
+      <td><%= booking.checkin_date %></td>
+      <td><%= booking.checkout_date %></td>
+      <td><%= booking.no_of_guests %></td>
+      <td><%= booking.room.no %></td>
+      <td><%= booking.room.room_type %></td>
+    </tr>
+  <% end %>
+</table>
+<br/>
+<%= link_to 'Book a Room', new_booking_path %>
